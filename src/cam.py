@@ -13,15 +13,33 @@ import unicornhat as uh
 
 camera = None
 pin = 23
+off_pin = 16
 
 def init():
 	global pin
+	global off_pin
+
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+	GPIO.setup(off_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
 	GPIO.add_event_detect(pin, GPIO.FALLING, bouncetime=1500)
 	GPIO.add_event_callback(pin, press)
 
+	GPIO.add_event_detect(off_pin, GPIO.FALLING, bouncetime=1500)
+	GPIO.add_event_callback(off_pin, off_press)
+
 taking = False
+
+def off_press(val):
+	print("We want to turn the camera off")
+
+	global status
+	status.clear()
+
+	import subprocess
+	cmdCommand = "shutdown -h now"
+	process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
 
 def press(val):
 	print("Button pressed")
@@ -74,7 +92,8 @@ class Shutter(threading.Thread):
 
 		self.camera.resolution = (3280, 2464)
 		self.camera.start_preview()
-
+		self.camera.hflip = True
+		self.camera.vflip = True
 		preview = 1
 
 		time.sleep(preview)
