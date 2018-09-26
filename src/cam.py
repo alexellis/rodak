@@ -14,14 +14,17 @@ import unicornhat as uh
 camera = None
 pin = 23
 off_pin = 16
+tilt_pin = 11
 
 def init():
 	global pin
 	global off_pin
 
 	GPIO.setmode(GPIO.BCM)
+
 	GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	GPIO.setup(off_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+	GPIO.setup(tilt_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 	GPIO.add_event_detect(pin, GPIO.FALLING, bouncetime=1500)
 	GPIO.add_event_callback(pin, press)
@@ -44,8 +47,10 @@ def off_press(val):
 def press(val):
 	print("Button pressed")
 	global shutter
-
-	shutter.take()
+	global tilt_pin
+	tilt_val = GPIO.input(tilt_pin)
+	print("Tilt", tilt_val)
+	shutter.take(tilt_val)
 
 def close():
 	global status
@@ -77,7 +82,8 @@ class Shutter(threading.Thread):
 	def set_camera(self, cam):
 		self.camera = cam
 
-	def take(self):
+	def take(self, tilt):
+		self.tilt = tilt
 		self.shots = self.shots + 1
 
 	def set_status(self, status):
@@ -94,6 +100,14 @@ class Shutter(threading.Thread):
 		self.camera.start_preview()
 		self.camera.hflip = True
 		self.camera.vflip = True
+
+		if self.tilt == 1:
+			self.camera.exif_tags["IFD0.Orientation"] = "6"
+		else:
+			self.camera.exif_tags["IFD0.Orientation"] = "1"
+
+		# self.camera.rotation = rotation
+
 		preview = 1
 
 		time.sleep(preview)
