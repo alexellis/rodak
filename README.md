@@ -1,5 +1,8 @@
 # rodak
-Build your own Rodak - a portable camera powered by your Raspberry Pi
+
+Build your own Rodak - a portable camera powered by your Raspberry Pi.
+
+Bring a new perspective to your photography with your very own retro camera shooting from waist-level instead of eye-level. Thanks to the built-in ground, glass this is also a low-powered project that doesn't need a separate electronic screen.
 
 ## Video 
 
@@ -21,9 +24,11 @@ https://twitter.com/alexellisuk/status/1044521342941491200
 
 * Enclosure
 
-This can be an old Kodak Brownie repurposed, or a $1 clear plastic lunch-box from a thrift store such as Poundland.
+This can be an old Kodak Brownie repurposed, or a $1 clear plastic lunch-box from a thrift store such as Poundland. My Brownie cost around 8GBP from eBay, but I also found some in a local charity shop.
 
-* LiPo battery
+* Raspberry Pi Zero W & 32GB SD card - flashed with Raspbian Lite
+
+* Small LiPo battery - [Pimoroni](https://shop.pimoroni.com/)
 
 * Either Pimoroni Zero LiPo battery shim or Adafruit PowerBoost 1000C
 
@@ -45,3 +50,5 @@ Additional parts for assembly: soldering iron, solder, heat-shrink wrap, hot glu
 ## Code
 
 See the [src](src) folder for my Python code.
+
+You can use cron and an `@reboot` line to automatically start the software.
