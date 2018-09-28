@@ -4,6 +4,10 @@ Build your own Rodak - a portable camera powered by your Raspberry Pi.
 
 Bring a new perspective to your photography with your very own retro camera shooting from waist-level instead of eye-level. Thanks to the built-in ground, glass this is also a low-powered project that doesn't need a separate electronic screen.
 
+[Follow me on Twitter @alexellisuk](https://twitter.com/alexellisuk) and [read my latest Raspberry Pi tutorials on my blog](https://blog.alexellis.io/tag/raspberry-pi/) with loads of cool hacks and weekend projects.
+
+> As [featured on Adafruit.com](https://blog.adafruit.com/2018/09/28/build-your-own-rodak-a-portable-camera-powered-by-your-raspberry-pi-raspberry_pi-piday-raspberrypi-alexellisuk/)
+
 ## Video 
 
 https://www.instagram.com/p/BoD8Va7gfQViHKyGVmXas5B9YHIgMke6-ouJkg0/?taken-by=alexellisuk
