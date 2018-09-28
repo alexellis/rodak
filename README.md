@@ -7,9 +7,9 @@ https://www.instagram.com/p/BoD8Va7gfQViHKyGVmXas5B9YHIgMke6-ouJkg0/?taken-by=al
 
 ![The front](https://discourse-cdn-sjc1.com/business6/uploads/pimoroni/optimized/2X/6/6cdba6f5f155242ea1179845a020a81203351e2e_1_666x500.jpeg)
 
-![Internals](https://pbs.twimg.com/media/Dn8KtNBWsAEhzWA.jpg)
+![Internals](https://pbs.twimg.com/media/Dn8KtNBWsAEhzWA.jpg:small)
 
-![Shooting](https://pbs.twimg.com/media/Dn8Rgm_WsAIhAT1.jpg)
+![Shooting](https://pbs.twimg.com/media/Dn8Rgm_WsAIhAT1.jpg:small)
 
 ## Sample photos & build photos
 
